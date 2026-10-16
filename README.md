@@ -33,6 +33,7 @@ python3 -m pytest --cov=database --cov=library_functions --cov-report=term-missi
 - №8 — сценарий ветки/PR/конфликта в `GITHUB_STEPS.md`; реальные PR нельзя заменить локальным архивом.
 - №9 — `tests/test_database.py` (unittest), отдельные тестовые базы.
 - №10 — `library_functions.py`, pytest и coverage.
+- №11 — рефакторинг проекта, разделение кода на модули, проверка запуска.
 
 ## Примечания
 
