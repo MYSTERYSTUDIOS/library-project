@@ -1,1 +1,39 @@
-# library-project
+# Информационная система «Студенческая библиотека»
+
+Итоговый учебный проект после лабораторных работ №1–10. Python 3.10+, SQLite, unittest, pytest, Google Colab, Git/GitHub.
+
+## Быстрый старт
+
+```bash
+python3 seed.py
+python3 app.py
+```
+
+`seed.py` создаёт `library.db` с демонстрационными книгами, читателями, одной просроченной и одной возвращённой выдачей. В `app.py` доступны 20 пунктов меню. Повторный запуск `seed.py` не дублирует данные.
+
+## Проверка
+
+```bash
+python3 -m unittest discover -s tests -p 'test_database.py' -v
+python3 -m pytest -q
+python3 -m pytest --cov=database --cov=library_functions --cov-report=term-missing
+```
+
+Установка зависимостей: `python3 -m pip install -r requirements.txt`. В Colab откройте `notebooks/Итоговая_библиотека_1-10.ipynb` и выполните все ячейки. Блокнот не требует загрузки отдельных `.py` файлов: включает их исходный код.
+
+## Состав и соответствие работам
+
+- №1 — WEEEK: организационный этап, выполняется в сервисе отдельно; ранее сданный отчёт не заменён выдуманными действиями.
+- №2 — `schema.dbml`, `schema.sql`, `library.db`, `seed.py`: проектирование и тестовые данные.
+- №3 — `get_all_books`, `get_books_by_author`, `get_all_readers`, `get_all_issues`, консольное меню.
+- №4 — CRUD книг, выдача и возврат.
+- №5 — CRUD читателей, должники, популярность, история выдач.
+- №6 — CSV/TXT экспорт, SQLite backup, статистика, активные читатели.
+- №7 — структура Git-проекта, `.gitignore`, инструкции и исходники; реальные коммиты и push делаются в GitHub.
+- №8 — сценарий ветки/PR/конфликта в `GITHUB_STEPS.md`; реальные PR нельзя заменить локальным архивом.
+- №9 — `tests/test_database.py` (unittest), отдельные тестовые базы.
+- №10 — `library_functions.py`, pytest и coverage.
+
+## Примечания
+
+База `library.db` содержит **демонстрационные** данные. Тесты создают временные БД. Удаление книги/читателя с историей выдач запрещено внешними ключами — это сохраняет целостность данных. `schema.dbml` можно импортировать в dbdiagram.io.

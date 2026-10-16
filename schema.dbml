@@ -1,0 +1,26 @@
+Table books {
+  id integer [pk, increment]
+  title text [not null]
+  author text [not null]
+  year integer
+  quantity integer [not null]
+}
+Table readers {
+  id integer [pk, increment]
+  last_name text [not null]
+  first_name text [not null]
+  middle_name text
+  student_card text [not null, unique]
+  group_name text
+  phone text
+  email text
+}
+Table issues {
+  id integer [pk, increment]
+  book_id integer [not null, ref: > books.id]
+  reader_id integer [not null, ref: > readers.id]
+  issue_date text [not null]
+  due_date text [not null]
+  return_date text
+  status text [not null]
+}
