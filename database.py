@@ -57,6 +57,7 @@ def add_book(title, author, year, quantity=1, db_path=None):
 
 
 def add_reader(last_name, first_name, student_card, group_name='', phone='', db_path=None):
+            """Добавляет читателя и возвращает его ID."""
     from library_functions import validate_student_card
     validate_student_card(student_card)
     if not last_name.strip() or not first_name.strip():
